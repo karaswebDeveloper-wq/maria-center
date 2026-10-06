@@ -98,12 +98,12 @@
     {{-- Quick actions --}}
     <section aria-labelledby="dashboard-actions-title">
         <h2 id="dashboard-actions-title" class="mb-3 text-sm font-semibold text-secondary">إجراءات سريعة</h2>
-        <div class="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
-            <a href="{{ route('students.create') }}" class="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2">إضافة طالب</a>
-            <a href="{{ route('teachers.create') }}" class="inline-flex min-h-11 items-center justify-center rounded-xl border border-secondary/30 bg-surface px-4 py-2.5 text-sm font-medium text-secondary transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30">إضافة مدرس</a>
-            <a href="{{ route('enrollments.create') }}" class="inline-flex min-h-11 items-center justify-center rounded-xl border border-secondary/30 bg-surface px-4 py-2.5 text-sm font-medium text-secondary transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30">إنشاء اشتراك</a>
-            <a href="{{ route('enrollments.index') }}" class="inline-flex min-h-11 items-center justify-center rounded-xl border border-secondary/30 bg-surface px-4 py-2.5 text-sm font-medium text-secondary transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30">تسجيل دفعة</a>
-            <a href="{{ route('payrolls.index') }}" class="inline-flex min-h-11 items-center justify-center rounded-xl border border-secondary/30 bg-surface px-4 py-2.5 text-sm font-medium text-secondary transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30">توليد راتب</a>
+        <div class="flex flex-wrap gap-3">
+            <a href="{{ route('students.create') }}" class="inline-flex min-h-11 w-full flex-none items-center justify-center whitespace-nowrap rounded-xl bg-primary px-4 py-2.5 text-center text-sm font-semibold leading-5 text-white transition hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 sm:w-auto">إضافة طالب</a>
+            <a href="{{ route('enrollments.index') }}" class="inline-flex min-h-11 w-full flex-none items-center justify-center whitespace-nowrap rounded-xl border border-secondary/30 bg-surface px-4 py-2.5 text-center text-sm font-medium leading-5 text-secondary transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 sm:w-auto">تسجيل دفعة</a>
+            <a href="{{ route('enrollments.create') }}" class="inline-flex min-h-11 w-full flex-none items-center justify-center whitespace-nowrap rounded-xl border border-secondary/30 bg-surface px-4 py-2.5 text-center text-sm font-medium leading-5 text-secondary transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 sm:w-auto">إنشاء اشتراك</a>
+            <a href="{{ route('teachers.create') }}" class="inline-flex min-h-11 w-full flex-none items-center justify-center whitespace-nowrap rounded-xl border border-secondary/30 bg-surface px-4 py-2.5 text-center text-sm font-medium leading-5 text-secondary transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 sm:w-auto">إضافة مدرس</a>
+            <a href="{{ route('payrolls.index') }}" class="inline-flex min-h-11 w-full flex-none items-center justify-center whitespace-nowrap rounded-xl border border-secondary/30 bg-surface px-4 py-2.5 text-center text-sm font-medium leading-5 text-secondary transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 sm:w-auto">توليد راتب</a>
         </div>
     </section>
 
@@ -161,7 +161,11 @@
         new Chart(ctx, {
             type,
             data: { labels, datasets: [{ label, data, backgroundColor: 'rgba(163, 139, 84, 0.18)', borderColor: '#A38B54' }] },
-            options: { responsive: true, plugins: { legend: { display: false } } },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, ticks: { precision: 0 } } },
+            },
         });
     }
 </script>

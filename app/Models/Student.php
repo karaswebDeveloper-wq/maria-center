@@ -54,9 +54,9 @@ class Student extends Model
     }
 
     public function photoUrl(): string
-{
-    return $this->image_path
-        ? \Illuminate\Support\Facades\Storage::disk('public')->url($this->image_path)
-        : asset('images/student-placeholder.png');
-}
+    {
+        return $this->image_path
+            ? \Illuminate\Support\Facades\Storage::disk('public')->url($this->image_path)
+            : asset('images/student-placeholder.svg');
+    }
 }

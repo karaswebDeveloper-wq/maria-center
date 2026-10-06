@@ -58,6 +58,12 @@
             <a href="{{ route('grades.index') }}" class="whitespace-nowrap rounded-lg px-3 py-2 transition {{ request()->routeIs('grades.*') ? 'bg-primary/10 font-medium text-primary' : 'text-secondary hover:text-primary' }}">الصفوف</a>
             <a href="{{ route('subjects.index') }}" class="whitespace-nowrap rounded-lg px-3 py-2 transition {{ request()->routeIs('subjects.*') ? 'bg-primary/10 font-medium text-primary' : 'text-secondary hover:text-primary' }}">المواد الدراسية</a>
             <a href="{{ route('academic-periods.index') }}" class="whitespace-nowrap rounded-lg px-3 py-2 transition {{ request()->routeIs('academic-periods.*') ? 'bg-primary/10 font-medium text-primary' : 'text-secondary hover:text-primary' }}">الفترات الدراسية</a>
+            <a href="{{ route('teachers.index') }}" class="whitespace-nowrap rounded-lg px-3 py-2 transition {{ request()->routeIs('teachers.*') ? 'bg-primary/10 font-medium text-primary' : 'text-secondary hover:text-primary' }}">المدرسون</a>
+            <a href="{{ route('students.index') }}" class="whitespace-nowrap rounded-lg px-3 py-2 transition {{ request()->routeIs('students.*') ? 'bg-primary/10 font-medium text-primary' : 'text-secondary hover:text-primary' }}">الطلاب</a>
+            <a href="{{ route('families.index') }}" class="whitespace-nowrap rounded-lg px-3 py-2 transition {{ request()->routeIs('families.*') ? 'bg-primary/10 font-medium text-primary' : 'text-secondary hover:text-primary' }}">الأسر</a>
+            <a href="{{ route('enrollments.index') }}" class="whitespace-nowrap rounded-lg px-3 py-2 transition {{ request()->routeIs('enrollments.*') ? 'bg-primary/10 font-medium text-primary' : 'text-secondary hover:text-primary' }}">الاشتراكات</a>
+            <a href="{{ route('payrolls.index') }}" class="whitespace-nowrap rounded-lg px-3 py-2 transition {{ request()->routeIs('payrolls.*') ? 'bg-primary/10 font-medium text-primary' : 'text-secondary hover:text-primary' }}">الرواتب</a>
+            <a href="{{ route('reports.index') }}" class="whitespace-nowrap rounded-lg px-3 py-2 transition {{ request()->routeIs('reports.*') ? 'bg-primary/10 font-medium text-primary' : 'text-secondary hover:text-primary' }}">التقارير</a>
         </div>
     </nav>
 

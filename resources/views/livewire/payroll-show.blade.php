@@ -1,4 +1,8 @@
 <div>
+    <div class="mb-4">
+        <a href="{{ route('payrolls.index') }}" class="text-sm text-secondary hover:text-primary">← رجوع لكل الرواتب</a>
+    </div>
+
     <div class="flex items-center justify-between">
         <div>
             <h2 class="text-xl font-semibold">راتب {{ $payroll->academicPeriod->name }}</h2>

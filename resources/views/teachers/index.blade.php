@@ -13,6 +13,16 @@
         <div class="mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">{{ session('error') }}</div>
     @endif
 
+    <form method="GET" action="{{ route('teachers.index') }}" class="mt-6 flex flex-wrap items-end gap-4">
+        <div class="min-w-[220px] flex-1">
+            <label for="teacher-search" class="block text-sm font-medium text-gray-700">بحث</label>
+            <input id="teacher-search" type="text" name="search" value="{{ $search }}"
+                   placeholder="الاسم، الهاتف، أو البريد الإلكتروني"
+                   class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-right">
+        </div>
+        <button type="submit" class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700">بحث</button>
+    </form>
+
     <div class="mt-6 overflow-x-auto rounded-xl border bg-white">
         <table class="w-full text-start text-sm">
             <thead class="border-b bg-gray-50 text-gray-600">

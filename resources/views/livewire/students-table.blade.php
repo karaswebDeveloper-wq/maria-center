@@ -57,7 +57,7 @@
                         </td>
                         <td class="px-4 py-3 text-gray-500" dir="ltr">{{ $student->student_code }}</td>
                         <td class="px-4 py-3">{{ $student->name }}</td>
-                        <td class="px-4 py-3">{{ $student->family->name }}</td>
+                        <td class="px-4 py-3">{{ $student->family?->name ?? '—' }}</td>
                         <td class="px-4 py-3">{{ $student->grade->stage->name }} / {{ $student->grade->name }}</td>
                         <td class="px-4 py-3 text-gray-500" dir="ltr">{{ $student->phone ?? '—' }}</td>
                         <td class="px-4 py-3">

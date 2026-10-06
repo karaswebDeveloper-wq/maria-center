@@ -14,16 +14,11 @@
 </div>
 
 <div>
-    <label for="family_id" class="block text-right text-sm font-medium text-secondary">الأسرة</label>
-    <select id="family_id" name="family_id" class="mt-1 w-full rounded-lg border border-secondary/20 bg-surface px-3 py-2 text-right focus:border-primary focus:ring-primary">
-        <option value="">اختر الأسرة</option>
-        @foreach ($families as $family)
-            <option value="{{ $family->id }}" @selected(old('family_id', $student->family_id ?? '') == $family->id)>
-                {{ $family->name }}
-            </option>
-        @endforeach
-    </select>
-    @error('family_id') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
+    <label for="family_name" class="block text-right text-sm font-medium text-secondary">اسم الأسرة (اختياري)</label>
+    <input id="family_name" name="family_name" type="text" value="{{ old('family_name', isset($student) ? ($student->family?->name ?? '') : '') }}"
+           class="mt-1 w-full rounded-lg border border-secondary/20 bg-surface px-3 py-2 text-right focus:border-primary focus:ring-primary">
+    <p class="mt-1 text-xs text-muted">إذا كانت الأسرة غير موجودة سيتم إنشاؤها تلقائيًا.</p>
+    @error('family_name') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
 </div>
 
 {{-- Stage/Grade cascading select: Alpine-only, no server round-trip. --}}

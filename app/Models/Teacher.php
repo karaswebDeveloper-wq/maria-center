@@ -49,11 +49,10 @@ class Teacher extends Model
     }
 
     public function photoUrl(): string
-{
-    return $this->image_path
-        ? \Illuminate\Support\Facades\Storage::disk('public')->url($this->image_path)
-        : asset('images/teacher-placeholder.png'); // ضيف صورة افتراضية هنا، أو شيل السطر واستخدم null في الـ view
-}
-
+    {
+        return $this->image_path
+            ? \Illuminate\Support\Facades\Storage::disk('public')->url($this->image_path)
+            : asset('images/teacher-placeholder.svg');
+    }
 
 }

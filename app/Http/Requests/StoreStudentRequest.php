@@ -16,7 +16,7 @@ class StoreStudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'family_id' => ['required', 'integer', 'exists:families,id'],
+            'family_name' => ['nullable', 'string', 'max:255'],
             'grade_id' => ['required', 'integer', 'exists:grades,id'],
             'student_code' => ['required', 'string', 'max:30', 'unique:students,student_code'],
             'name' => ['required', 'string', 'max:255'],
@@ -30,8 +30,7 @@ class StoreStudentRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'family_id.required' => 'الأسرة مطلوبة.',
-            'family_id.exists' => 'الأسرة المختارة غير موجودة.',
+            'family_name.max' => 'اسم الأسرة يجب ألا يتجاوز 255 حرفًا.',
             'grade_id.required' => 'الصف الدراسي مطلوب.',
             'grade_id.exists' => 'الصف المختار غير موجود.',
             'student_code.required' => 'كود الطالب مطلوب.',

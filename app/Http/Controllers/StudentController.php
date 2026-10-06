@@ -32,6 +32,7 @@ class StudentController extends Controller
     public function store(StoreStudentRequest $request): RedirectResponse
     {
         $data = $request->validated();
+        $this->resolveFamily($data);
 
         if ($request->hasFile('image')) {
             $data['image_path'] = $request->file('image')->store('students', 'public');
@@ -50,6 +51,7 @@ class StudentController extends Controller
     public function update(UpdateStudentRequest $request, Student $student): RedirectResponse
     {
         $data = $request->validated();
+        $this->resolveFamily($data);
 
         if ($request->hasFile('image')) {
             if ($student->image_path) {
@@ -78,14 +80,27 @@ class StudentController extends Controller
     /**
      * Shared reference data for the create/edit forms.
      *
-     * @return array{families: \Illuminate\Support\Collection, stages: \Illuminate\Support\Collection, grades: \Illuminate\Support\Collection}
+     * @return array{stages: \Illuminate\Support\Collection, grades: \Illuminate\Support\Collection}
      */
     private function formData(): array
     {
         return [
-            'families' => Family::query()->active()->orderBy('name')->get(),
             'stages' => Stage::query()->active()->orderBy('name')->get(),
             'grades' => Grade::query()->active()->orderBy('sort_order')->get(['id', 'name', 'stage_id']),
         ];
+    }
+
+    private function resolveFamily(array &$data): void
+    {
+        $familyName = trim((string) ($data['family_name'] ?? ''));
+
+        $data['family_id'] = $familyName !== ''
+            ? Family::query()->firstOrCreate(
+                ['name' => $familyName],
+                ['is_active' => true],
+            )->id
+            : null;
+
+        unset($data['family_name']);
     }
 }
